@@ -1,4 +1,4 @@
-# Modern Angular Custom Input Component
+# Angular Custom Input Component
 
 Overview
 --------
