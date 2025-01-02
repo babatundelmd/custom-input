@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, computed, input, model, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { EyeComponent } from '../eye/eye.component';
+import { EyeSlashComponent } from '../eye-slash/eye-slash.component';
 
 
 export type InputType = 'text' | 'password' | 'number' | 'tel'
@@ -9,7 +11,7 @@ export type IconPosition = 'front' | 'back'
 @Component({
   selector: 'app-ng-custom-input',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, EyeComponent, EyeSlashComponent],
   templateUrl: './ng-custom-input.component.html',
   styleUrl: './ng-custom-input.component.css'
 })
@@ -52,8 +54,4 @@ export class NgCustomInputComponent {
   togglePassword(): void {
     this.showPasswordSignal.update(value => !value);
   }
-
-
-
-
 }

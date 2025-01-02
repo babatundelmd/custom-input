@@ -1,38 +1,36 @@
 <div class="input-container" [class.error]="error()">
-    @if (icon() && iconPosition() === 'front') {
-      <i class="material-icons icon-front">
-        {{icon()}}
-      </i>
-    }
+  @if (icon() && iconPosition() === 'front') {
+  <i class="icon-front">
+    {{ icon() }}
+  </i>
+  }
 
-    <input
-      [type]="showPassword() ? 'text' : type()"
-      [attr.maxlength]="maxLength()"
-      [attr.minlength]="minLength()"
-      [attr.min]="type() === 'number' ? 0 : null"
-      [placeholder]="placeholder()"
-      [disabled]="disabled()"
-      [ngModel]="modelValue()"
-      (input)="onInputChange($event)"
-    />
+  <input
+    [type]="showPassword() ? 'text' : type()"
+    [attr.maxlength]="maxLength()"
+    [attr.minlength]="minLength()"
+    [attr.min]="type() === 'number' ? 0 : null"
+    [placeholder]="placeholder()"
+    [disabled]="disabled()"
+    [ngModel]="modelValue()"
+    (input)="onInputChange($event)"
+  />
 
-    @if (icon() && iconPosition() === 'back') {
-      <i class="material-icons icon-back">
-        {{icon()}}
-      </i>
-    }
-
-    @if (type() === 'password') {
-      <i 
-        class="material-icons password-toggle"
-        (click)="togglePassword()">
-        {{showPassword() ? 'visibility_off' : 'visibility'}}
-      </i>
-    }
-
-    @if (errorMessage()) {
-      <div class="error-message">
-        {{errorMessage()}}
-      </div>
-    }
+  @if (icon() && iconPosition() === 'back') {
+  <i class="icon-back">
+    {{ icon() }}
+  </i>
+  } 
+  
+  @if (type() === 'password') { @if(showPassword()){
+  <app-eye class="password-toggle" (click)="togglePassword()"> </app-eye>
+  } @else {
+  <app-eye-slash class="password-toggle" (click)="togglePassword()">
+  </app-eye-slash>
+  }
+  } @if (errorMessage()) {
+  <div class="error-message">
+    {{ errorMessage() }}
   </div>
+  }
+</div>
